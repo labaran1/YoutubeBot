@@ -53,22 +53,22 @@ compliment = ["Amazing content", "Nice Video", "Great Learning Resource",
               "Nice Content"]
 
 
-# def retweetRandom():
-#     api.retweet(api.search(random.choice(search_words))[0].id_str)
+def retweetRandom():
+    api.retweet(api.search(random.choice(search_words))[0].id_str)
+    print("Retweeted Succefully")
 
 
-# def tweetRandom():
-#     tweet = random.choice(compliment) + '\n' + random.choice(links) + \
-#         '\n' + str(random.sample(hashtags, 7))
-#     api.update_status(tweet)
+def tweetRandom():
+    tweet = random.choice(compliment) + '\n' + random.choice(links) + \
+        '\n' + str(random.sample(hashtags, 7))
+    api.update_status(tweet)
+    print("Posted Succesfully")
 
 
-# schedule.every(5).hours.do(tweetRandom)
-# schedule.every(30).minutes.do(retweetRandom)
+schedule.every(5).hours.do(tweetRandom)
+schedule.every(30).minutes.do(retweetRandom)
 
 
-# while True:
-#     schedule.run_pending()
-#     time.sleep(1)
-
-api.update_status("What does it take to be a software Engineer #100DaysOfCode")
+while True:
+    schedule.run_pending()
+    time.sleep(1)
