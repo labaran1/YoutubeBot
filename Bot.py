@@ -68,7 +68,7 @@ def tweetRandom():
 schedule.every(5).hours.do(tweetRandom)
 schedule.every(30).minutes.do(retweetRandom)
 
-
+print("Just Got Started")
 while True:
     schedule.run_pending()
     time.sleep(1)
