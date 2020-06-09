@@ -42,10 +42,13 @@ hashtags = [
     "#nodejs",
     '#Denojs',
     "#techtwitter",
-    '#vuejs'
+    '#vuejs',
+    "#helpmecode",
+    "#freecodecamp"
 ]
 
 search_words = ["#javascript", "#100DaysOfCode",
+                "#helpmecode", "#freecodecamp"
                 "#linux", "#reactjs", "#nodejs"]
 compliment = ["Amazing content", "Nice Video", "Great Learning Resource",
               "Check this Video Out", "Let Learn together", "Great Content",
