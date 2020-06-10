@@ -2,8 +2,18 @@ import tweepy
 import time
 from random import randint
 import random
-import schedule
+import numpy as np
+# flask stuff
+from flask import Flask
+from flask_cors import CORS
 # from datetime import datetime
+
+
+# Flask and CORS stuff
+app = Flask(__name__)
+CORS(app)
+
+
 
 consumer_key = 'uZGF89lJwOs7JT70wnRb3ZWwM'
 consumer_secret = '0KAo0Dk27tEepN7dUEIvKNKRNAEzUPamyvUHVXIm3NYDRpvXaq'
@@ -44,11 +54,14 @@ hashtags = [
     "#techtwitter",
     '#vuejs',
     "#helpmecode",
-    "#freecodecamp"
+    "#freecodecamp",
+    "#nestjs"
 ]
 
-search_words = ["#javascript", "#100DaysOfCode",
-                "#helpmecode", "#freecodecamp"
+search_words = ["#javascript",
+                "#webdevelopment", "#angular", "#nestjs"
+                "#techtwitter", "#techtwitter", "#100DaysOfCode",
+                "#helpmecode", "#freecodecamp", "#CodeNewbies",
                 "#linux", "#reactjs", "#nodejs"]
 compliment = ["Amazing content", "Nice Video", "Great Learning Resource",
               "Check this Video Out", "Let Learn together", "Great Content",
@@ -57,21 +70,33 @@ compliment = ["Amazing content", "Nice Video", "Great Learning Resource",
 
 
 def retweetRandom():
-    api.retweet(api.search(random.choice(search_words))[0].id_str)
-    print("Retweeted Succefully")
+    try:
+        api.retweet(api.search(random.choice(search_words))[0].id_str)
+        return { "action": "retweet", "status": "success"}
+    except Exception as err:
+        exception_type = type(err).__name__
+        return { "action": "retweet", "status": "failed", "error_type": exception_type}
 
 
 def tweetRandom():
-    tweet = random.choice(compliment) + '\n' + random.choice(links) + \
-        '\n' + str(random.sample(hashtags, 7))
-    api.update_status(tweet)
-    print("Posted Succesfully")
+    try:
+        tweet = random.choice(compliment) + '\n' + random.choice(links) + \
+        '\n' + ' '.join(random.sample(hashtags, 7))
+        api.update_status(tweet)
+        return { "action": "tweet", "status": "success"}
+    except Exception as err:
+        exception_type = type(err).__name__
+        return { "action": "tweet", "status": "failed", "error_type": exception_type}
 
 
-schedule.every(120).minutes.do(tweetRandom)
-schedule.every(10).minutes.do(retweetRandom)
+@app.route("/tweet")
+def tweet():
+    return tweetRandom()
 
-print("Just Got Started")
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+@app.route("/retweet")
+def retweet():
+    return retweetRandom()
+
+if __name__ == '__main__':
+    app.debug = False
+    app.run()
