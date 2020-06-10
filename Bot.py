@@ -32,7 +32,7 @@ hashtags = [
     "#codeNewbies",
     "#frontEnd",
     "#100DaysOfCode",
-    "#coding"
+    "#coding",
     "#reactjs",
     "#CodeNewbies",
     "#css",
@@ -68,8 +68,8 @@ def tweetRandom():
     print("Posted Succesfully")
 
 
-schedule.every(5).hours.do(tweetRandom)
-schedule.every(30).minutes.do(retweetRandom)
+schedule.every(600).minutes.do(tweetRandom)
+schedule.every(15).minutes.do(retweetRandom)
 
 print("Just Got Started")
 while True:
