@@ -61,7 +61,7 @@ hashtags = [
     '#Denojs',
     "#techtwitter",
     '#vuejs',
-    "#helpmecode",
+   
     "#freecodecamp",
     "#nestjs"
 ]
