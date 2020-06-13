@@ -86,7 +86,7 @@ def getVids(playlist):
 
 def retweetRandom():
     try:
-        getVids(playlist)
+        
         api.retweet(api.search(random.choice(search_words))[0].id_str)
         return { "action": "retweet", "status": "success"}
     except Exception as err:
