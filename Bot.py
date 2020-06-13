@@ -15,11 +15,18 @@ app = Flask(__name__)
 CORS(app)
 
 
-
+# Todo:Move to Env variables
 consumer_key = 'uZGF89lJwOs7JT70wnRb3ZWwM'
 consumer_secret = '0KAo0Dk27tEepN7dUEIvKNKRNAEzUPamyvUHVXIm3NYDRpvXaq'
 Access_key = '1165369936488927233-6dbf0usveUf0TFMOcuVAD5AFUzWvtE'
 Access_secret = 'Gj6BimWT0c4oj55NS3uTh8yzSlx0ygg7uP2Oo5k5vGAjR'
+YouTube_Api_Key = "AIzaSyCbr1OKUXT0ecjiMsS-trRYKvqHxIOtXdw"
+# Variables
+channel_id = "UCLINuI_UuQ3KMY-QQYGO1Lw"
+uploads_id = "UULINuI_UuQ3KMY-QQYGO1Lw"
+youtubeShort_video_Url = "https://www.youtube.com/watch?v="
+playlist = f"https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId={uploads_id}&key={YouTube_Api_Key}&maxResults=50"
+
 
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -69,9 +76,16 @@ compliment = ["Amazing content", "Nice Video", "Great Learning Resource",
               "Great Tutorial",
               "Nice Content"]
 
+def getVids(playlist):
+    data = requests.get(playlist).json()
+    for ids in data["items"]:
+        links.append(youtubeShort_video_Url + ids["snippet"]["resourceId"]["videoId"])
+
+
 
 def retweetRandom():
     try:
+        getVids(playlist)
         api.retweet(api.search(random.choice(search_words))[0].id_str)
         return { "action": "retweet", "status": "success"}
     except Exception as err:
