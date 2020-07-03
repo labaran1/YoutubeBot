@@ -43,7 +43,9 @@ links = [
     'https://www.youtube.com/watch?v=hW6t1c46CsY&t=606s',
     'https://www.youtube.com/watch?v=HFHM8eWwjn0',
     'https://www.youtube.com/watch?v=-Fxy5pewRkU',
-    'https://www.youtube.com/watch?v=aQXSErOBlqA'
+    'https://www.youtube.com/watch?v=aQXSErOBlqA',
+    "https://www.youtube.com/watch?v=WOdndBthyPU&list=PLHz0I0UMGTSwo61WYAvRHre0QcIU4f1ip&index=3"
+
 ]
 hashtags = [
     '#programming',
