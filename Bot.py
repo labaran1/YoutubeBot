@@ -35,9 +35,7 @@ auth.set_access_token(Access_key, Access_secret)
 # Twi Api
 api = tweepy.API(auth)
 
-
-links = [
-    # 'https://www.youtube.com/watch?v=qzMYrt5GqAo&list=PLHz0I0UMGTSwo61WYAvRHre0QcIU4f1ip&index=2',
+  # 'https://www.youtube.com/watch?v=qzMYrt5GqAo&list=PLHz0I0UMGTSwo61WYAvRHre0QcIU4f1ip&index=2',
     # 'https://www.youtube.com/watch?v=yVmm3FjXbm8&t=243s',
     # 'https://www.youtube.com/watch?v=fx7pW3kPXMg',
     # 'https://www.youtube.com/watch?v=PDFlqkm5-LQ&t=22s',
@@ -47,7 +45,8 @@ links = [
     # 'https://www.youtube.com/watch?v=aQXSErOBlqA',
     # "https://www.youtube.com/watch?v=WOdndBthyPU&list=PLHz0I0UMGTSwo61WYAvRHre0QcIU4f1ip&index=3"
 
-]
+
+links = []
 hashtags = [
     '#programming',
     "#javascript",
@@ -65,6 +64,8 @@ hashtags = [
     '#Denojs',
     "#techtwitter",
     '#vuejs',
+   "#Datascience",
+   "#ML",
    
     "#freecodecamp",
     "#nestjs"
@@ -79,6 +80,25 @@ compliment = ["Amazing content", "Nice Video", "Great Learning Resource",
               "Check this Video Out", "Let Learn together", "Great Content",
               "Great Tutorial",
               "Nice Content"]
+
+articleCompliment =["Great Article",
+                    "Nice Work", 
+                    "Amazing Content", 
+                     "Worth a share",
+                     "Check out this article", 
+                    "Nice Article", "Worth a Retweet",
+                    "Check this content out",
+                     "Amazing Content"]
+articleLinks =['https://medium.com/@labaranlabs/object-oriented-programming-concept-978a7cbaf33b',
+                'https://medium.com/@labaranlabs/understand-data-types-in-javascript-2f4cee026ed3',
+                "https://medium.com/@labaranlabs/data-analysis-with-pandas-39d4516f56a6",
+                "https://towardsdatascience.com/the-fastml-guide-9ada1bb761cf",
+                "https://towardsdatascience.com/developing-a-good-attitude-towards-data-science-be4b7d0e1e49",
+                "https://medium.com/@adlabaran/ultimate-guide-to-numpy-for-machine-learning-a6d3dd5abdad",
+                "https://towardsdatascience.com/the-self-learning-path-to-becoming-a-data-scientist-ai-or-ml-engineer-9ab3a97ca"
+
+
+]
 
 def getVids(playlist):
     try:
@@ -108,14 +128,20 @@ def tweetRandom():
         tweet = random.choice(compliment) + '\n' + random.choice(links) + \
         '\n' + ' '.join(random.sample(hashtags, 7))
         api.update_status(tweet)
-        return { "action": "tweet", "status": "success"}
+        return { "action": " article tweet", "status": "success"}
     except Exception as err:
         exception_type = type(err).__name__
         return { "action": "tweet", "status": "failed", "error_type": exception_type}
 
-# getVids(playlist)
-# print(links)
-# print(len(links))
+def tweetArticle():
+    try:
+        tweet = random.choice(articleCompliment) + '\n' + random.choice(articleLinks) + \
+          '\n' + ' '.join(random.sample(hashtags, 7))
+        api.update_status(tweet)
+        return { "action": " article tweet", "status": "success"}
+    except Exception as err:
+        exception_type = type(err).__name__
+        return { "action": "tweet article", "status":"failed", "error_type":exception_type}
 
 
 
@@ -132,6 +158,10 @@ def retweet():
 def getPersonalVids():
     links.clear()
     return getVids(playlist)
+
+@app.route("/articletweet")
+def article():
+    return tweetArticle()
     
 
 if __name__ == '__main__':
