@@ -1,4 +1,5 @@
 import tweepy
+import requests
 import time
 from random import randint
 import random
@@ -36,15 +37,15 @@ api = tweepy.API(auth)
 
 
 links = [
-    'https://www.youtube.com/watch?v=qzMYrt5GqAo&list=PLHz0I0UMGTSwo61WYAvRHre0QcIU4f1ip&index=2',
-    'https://www.youtube.com/watch?v=yVmm3FjXbm8&t=243s',
-    'https://www.youtube.com/watch?v=fx7pW3kPXMg',
-    'https://www.youtube.com/watch?v=PDFlqkm5-LQ&t=22s',
-    'https://www.youtube.com/watch?v=hW6t1c46CsY&t=606s',
-    'https://www.youtube.com/watch?v=HFHM8eWwjn0',
-    'https://www.youtube.com/watch?v=-Fxy5pewRkU',
-    'https://www.youtube.com/watch?v=aQXSErOBlqA',
-    "https://www.youtube.com/watch?v=WOdndBthyPU&list=PLHz0I0UMGTSwo61WYAvRHre0QcIU4f1ip&index=3"
+    # 'https://www.youtube.com/watch?v=qzMYrt5GqAo&list=PLHz0I0UMGTSwo61WYAvRHre0QcIU4f1ip&index=2',
+    # 'https://www.youtube.com/watch?v=yVmm3FjXbm8&t=243s',
+    # 'https://www.youtube.com/watch?v=fx7pW3kPXMg',
+    # 'https://www.youtube.com/watch?v=PDFlqkm5-LQ&t=22s',
+    # 'https://www.youtube.com/watch?v=hW6t1c46CsY&t=606s',
+    # 'https://www.youtube.com/watch?v=HFHM8eWwjn0',
+    # 'https://www.youtube.com/watch?v=-Fxy5pewRkU',
+    # 'https://www.youtube.com/watch?v=aQXSErOBlqA',
+    # "https://www.youtube.com/watch?v=WOdndBthyPU&list=PLHz0I0UMGTSwo61WYAvRHre0QcIU4f1ip&index=3"
 
 ]
 hashtags = [
@@ -80,9 +81,15 @@ compliment = ["Amazing content", "Nice Video", "Great Learning Resource",
               "Nice Content"]
 
 def getVids(playlist):
-    data = requests.get(playlist).json()
-    for ids in data["items"]:
-        links.append(youtubeShort_video_Url + ids["snippet"]["resourceId"]["videoId"])
+    try:
+         data = requests.get(playlist).json()
+         for ids in data["items"]:
+             links.append(youtubeShort_video_Url + ids["snippet"]["resourceId"]["videoId"])
+         return { "action": "Get Videos", "status":"success"}
+
+    except Exception as err:
+        exception_type = type(err).__name__
+        return { "action": "Get Videos", "status": "failed", "error_type": exception_type}
 
 
 
@@ -106,6 +113,11 @@ def tweetRandom():
         exception_type = type(err).__name__
         return { "action": "tweet", "status": "failed", "error_type": exception_type}
 
+# getVids(playlist)
+# print(links)
+# print(len(links))
+
+
 
 @app.route("/tweet")
 def tweet():
@@ -114,6 +126,13 @@ def tweet():
 @app.route("/retweet")
 def retweet():
     return retweetRandom()
+
+
+@app.route("/getVideos")
+def getPersonalVids():
+    links.clear()
+    return getVids(playlist)
+    
 
 if __name__ == '__main__':
     app.debug = False
