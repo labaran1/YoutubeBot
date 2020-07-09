@@ -95,7 +95,8 @@ articleLinks =['https://medium.com/@labaranlabs/object-oriented-programming-conc
                 "https://towardsdatascience.com/the-fastml-guide-9ada1bb761cf",
                 "https://towardsdatascience.com/developing-a-good-attitude-towards-data-science-be4b7d0e1e49",
                 "https://medium.com/@adlabaran/ultimate-guide-to-numpy-for-machine-learning-a6d3dd5abdad",
-                "https://towardsdatascience.com/the-self-learning-path-to-becoming-a-data-scientist-ai-or-ml-engineer-9ab3a97ca"
+                "https://towardsdatascience.com/the-self-learning-path-to-becoming-a-data-scientist-ai-or-ml-engineer-9ab3a97ca",
+               "https://medium.com/@labaranlabs/is-it-worth-contributing-to-open-source-f1bca2c21828"
 
 
 ]
