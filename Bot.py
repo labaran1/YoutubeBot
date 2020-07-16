@@ -7,21 +7,22 @@ import numpy as np
 # flask stuff
 from flask import Flask
 from flask_cors import CORS
+from dotenv import load_dotenv
 import os
-# from datetime import datetime
 
-
+load_dotenv()
 # Flask and CORS stuff
 app = Flask(__name__)
 CORS(app)
 
 
-# Todo:Move to Env variables
-consumer_key = 'uZGF89lJwOs7JT70wnRb3ZWwM'
-consumer_secret = '0KAo0Dk27tEepN7dUEIvKNKRNAEzUPamyvUHVXIm3NYDRpvXaq'
-Access_key = '1165369936488927233-6dbf0usveUf0TFMOcuVAD5AFUzWvtE'
-Access_secret = 'Gj6BimWT0c4oj55NS3uTh8yzSlx0ygg7uP2Oo5k5vGAjR'
-YouTube_Api_Key = "AIzaSyCbr1OKUXT0ecjiMsS-trRYKvqHxIOtXdw"
+# Getting env variables
+consumer_key = os.environ.get('consumer_key')
+consumer_secret = os.environ.get('consumer_secret')
+Access_key = os.environ.get('Access_key')
+Access_secret = os.environ.get('Access_secret')
+YouTube_Api_Key = os.environ.get('YouTube_Api_Key')
+
 # Variables
 channel_id = "UCLINuI_UuQ3KMY-QQYGO1Lw"
 uploads_id = "UULINuI_UuQ3KMY-QQYGO1Lw"
@@ -142,7 +143,6 @@ def tweetArticle():
     except Exception as err:
         exception_type = type(err).__name__
         return { "action": "tweet article", "status":"failed", "error_type":exception_type}
-
 
 
 @app.route("/tweet")
