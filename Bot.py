@@ -98,7 +98,8 @@ articleLinks =['https://medium.com/@labaranlabs/object-oriented-programming-conc
                 "https://medium.com/@adlabaran/ultimate-guide-to-numpy-for-machine-learning-a6d3dd5abdad",
                 "https://towardsdatascience.com/the-self-learning-path-to-becoming-a-data-scientist-ai-or-ml-engineer-9ab3a97ca",
                "https://medium.com/@labaranlabs/is-it-worth-contributing-to-open-source-f1bca2c21828",
-               "https://towardsdatascience.com/the-no-code-approach-to-data-science-and-ai-41bf22fea971"
+               "https://towardsdatascience.com/the-no-code-approach-to-data-science-and-ai-41bf22fea971",
+               "https://medium.com/downsample/rules-to-building-an-ai-system-from-a-data-scientist-f39d303d7d79"
 
 
 ]
