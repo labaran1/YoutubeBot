@@ -99,10 +99,29 @@ articleLinks =['https://medium.com/@labaranlabs/object-oriented-programming-conc
                 "https://towardsdatascience.com/the-self-learning-path-to-becoming-a-data-scientist-ai-or-ml-engineer-9ab3a97ca",
                "https://medium.com/@labaranlabs/is-it-worth-contributing-to-open-source-f1bca2c21828",
                "https://towardsdatascience.com/the-no-code-approach-to-data-science-and-ai-41bf22fea971",
-               "https://medium.com/downsample/rules-to-building-an-ai-system-from-a-data-scientist-f39d303d7d79"
+               "https://medium.com/downsample/rules-to-building-an-ai-system-from-a-data-scientist-f39d303d7d79",
+               "https://towardsdatascience.com/why-you-should-consider-a-career-in-data-science-5f5468e516b6"
 
 
 ]
+toFollow = ["traversymedia", "randallKanna", "kvlly", "lavie_encode", "math_rachel","florinpop1705", "lynnandtonic", "Emmaboiston", "catalinmpit", "techgirl1908", "kentcdodds", "scribblingOn", 'telmo', "samantha_ming"]
+followid = []
+
+# Function to run every 10 hours
+def toFollowDetails():
+    try:
+        mine = random.sample(api.followers_ids(random.choice(toFollow)), 150)
+                         #    followid.append(random.sample(api.followers_ids(random.choice(toFollow)), 10))
+        for i in mine:
+            followid.append(i)
+        return { "action": "Get Details of who to follow", "status":"success"}
+
+    except Exception as err:
+        exception_type = type(err).__name__
+        return { "action": "Get Details of who to follow", "status": "failed", "error_type": exception_type}
+
+
+ 
 
 def getVids(playlist):
     try:
@@ -147,6 +166,36 @@ def tweetArticle():
         exception_type = type(err).__name__
         return { "action": "tweet article", "status":"failed", "error_type":exception_type}
 
+
+
+
+
+def follow():
+
+    try:
+       
+        api.create_friendship(random.choice(followid))
+
+        return { "action": "followed", "status":"Success"}
+
+        
+    except Exception as err:
+        exception_type = type(err).__name__
+        
+        return { "action": "Unable to follow", "status":"failed", "error_type":exception_type}
+
+# toFollowDetails()
+# print(random.sample(followid,1))
+# print(followid)
+
+@app.route('/follow')
+def followInc():
+    return follow()
+
+@app.route('/getFollowers')
+def getFollow():
+    followid.clear()
+    return toFollowDetails()
 
 @app.route("/tweet")
 def tweet():
