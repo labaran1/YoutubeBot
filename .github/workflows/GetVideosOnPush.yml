@@ -6,12 +6,12 @@ name: FetchVideos_On_Push
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name:  fetchin videos
-      run: curl https://personaltwitterbot.herokuapp.com/getVideos
+      - uses: actions/checkout@v2
+      - name: fetchin videos
+        run: curl https://personaltwitterbot1.herokuapp.com/getVideos

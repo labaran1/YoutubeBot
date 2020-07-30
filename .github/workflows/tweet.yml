@@ -6,6 +6,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Doing tweet
-      run: curl https://personaltwitterbot.herokuapp.com/tweet
+      - uses: actions/checkout@v2
+      - name: Doing tweet
+        run: curl https://personaltwitterbot1.herokuapp.com/tweet

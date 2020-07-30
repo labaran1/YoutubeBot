@@ -8,4 +8,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Doing tweet
-        run: curl https://personaltwitterbot.herokuapp.com/articletweet
+        run: curl https://personaltwitterbot1.herokuapp.com/articletweet

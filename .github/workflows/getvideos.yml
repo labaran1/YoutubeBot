@@ -5,13 +5,13 @@ name: Get_Videos
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-   schedule:
+  schedule:
     - cron: "0 */12 * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Getting all videos
-      run: curl https://personaltwitterbot.herokuapp.com/getVideos
+      - uses: actions/checkout@v2
+      - name: Getting all videos
+        run: curl https://personaltwitterbot1.herokuapp.com/getVideos
