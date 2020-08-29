@@ -90,21 +90,23 @@ articleCompliment =["Great Article",
                     "Nice Article", "Worth a Retweet",
                     "Check this content out",
                      "Amazing Content"]
-articleLinks =['https://medium.com/@labaranlabs/object-oriented-programming-concept-978a7cbaf33b',
-                'https://medium.com/@labaranlabs/understand-data-types-in-javascript-2f4cee026ed3',
-                "https://medium.com/@labaranlabs/data-analysis-with-pandas-39d4516f56a6",
-                "https://towardsdatascience.com/the-fastml-guide-9ada1bb761cf",
+articleLinks =[
+               
+               "https://blog.labaranlabs.com/Is-It-Wort-Contributing-To-Open-Source",
+               "https://blog.labaranlabs.com/Data-Analysis-With-Pandas",
+               "https://blog.labaranlabs.com/Ultimate-Guide-To-Numpy-For-Machine-Learning",
+               "https://blog.labaranlabs.com/Object-Oriented-Programming-concept",
+               "https://blog.labaranlabs.com/Understand-Data-Types-In-Javascript",
+                 "https://towardsdatascience.com/the-fastml-guide-9ada1bb761cf",
                 "https://towardsdatascience.com/developing-a-good-attitude-towards-data-science-be4b7d0e1e49",
-                "https://medium.com/@adlabaran/ultimate-guide-to-numpy-for-machine-learning-a6d3dd5abdad",
-                "https://towardsdatascience.com/the-self-learning-path-to-becoming-a-data-scientist-ai-or-ml-engineer-9ab3a97ca",
-               "https://medium.com/@labaranlabs/is-it-worth-contributing-to-open-source-f1bca2c21828",
+               "https://towardsdatascience.com/the-self-learning-path-to-becoming-a-data-scientist-ai-or-ml-engineer-9ab3a97ca",
                "https://towardsdatascience.com/the-no-code-approach-to-data-science-and-ai-41bf22fea971",
                "https://medium.com/downsample/rules-to-building-an-ai-system-from-a-data-scientist-f39d303d7d79",
                "https://towardsdatascience.com/why-you-should-consider-a-career-in-data-science-5f5468e516b6"
 
 
 ]
-toFollow = ["traversymedia", "randallKanna", "kvlly", "lavie_encode", "math_rachel","florinpop1705", "lynnandtonic", "Emmaboiston", "catalinmpit", "techgirl1908", "kentcdodds", "scribblingOn", 'telmo', "samantha_ming"]
+toFollow = ["traversymedia", "randallKanna", "kvlly", "lavie_encode", "math_rachel","florinpop1705", "lynnandtonic", "Emmaboiston", "catalinmpit", "towernter",  "jamonholmgren" ,"techgirl1908", "DThompsonDev", "kentcdodds", "scribblingOn", 'telmo', "FrancescoCiull4", "samantha_ming"]
 followid = []
 
 # Function to run every 10 hours
