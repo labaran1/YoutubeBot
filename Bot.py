@@ -93,7 +93,7 @@ articleCompliment =["Great Article",
 articleLinks =[
                
                "https://blog.labaranlabs.com/Is-It-Wort-Contributing-To-Open-Source",
-               "https://blog.labaranlabs.com/Data-Analysis-With-Pandas",
+               "https://blog.labaranlabs.com/Data-Analysis-With-Pandas/index",
                "https://blog.labaranlabs.com/Ultimate-Guide-To-Numpy-For-Machine-Learning",
                "https://blog.labaranlabs.com/Object-Oriented-Programming-concept",
                "https://blog.labaranlabs.com/Understand-Data-Types-In-Javascript",
