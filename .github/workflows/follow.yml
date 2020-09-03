@@ -14,4 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Getting all videos
-      run: curl https://personaltwitterbot.herokuapp.com/follow
+      run: curl https://personaltwitterbot1.herokuapp.com/follow
