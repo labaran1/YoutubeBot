@@ -106,6 +106,34 @@ articleLinks =['https://medium.com/@labaranlabs/object-oriented-programming-conc
 ]
 toFollow = ["traversymedia", "randallKanna", "kvlly", "lavie_encode", "math_rachel","florinpop1705", "lynnandtonic", "Emmaboiston", "catalinmpit", "techgirl1908", "kentcdodds", "scribblingOn", 'telmo', "samantha_ming"]
 followid = []
+Assert = ['Data1.jpeg',
+'Data2.jpeg',
+'Data3.jpeg',
+'Data4.jpeg',
+'Data5.jpeg'
+,
+'Data6.jpeg',
+'Data7.jpeg',
+'Data8.jpeg',
+'Data9.jpeg',
+'Data10.jpeg',
+'Data11.jpeg',
+'Data12.jpeg',
+'Data13.jpeg',
+'Data14.jpeg',
+'Data15.jpeg',
+'Data16.jpeg',
+'Data17.jpeg',
+'Data18.jpeg',
+'Data19.jpeg',
+'Data20.jpeg',
+'Data21.jpeg',
+'Data22.jpeg',
+'Data23.jpeg',
+
+
+
+]
 
 # Function to run every 10 hours
 def toFollowDetails():
@@ -160,7 +188,11 @@ def tweetArticle():
     try:
         tweet = random.choice(articleCompliment) + '\n' + random.choice(articleLinks) + \
           '\n' + ' '.join(random.sample(hashtags, 7))
-        api.update_status(tweet)
+        # me = '/me.jpeg'
+        # api.update_status(tweet)
+        pic = f'./Asserts/{random.choice(Assert)}'
+        
+        api.update_with_media(pic, tweet)
         return { "action": " article tweet", "status": "success"}
     except Exception as err:
         exception_type = type(err).__name__
@@ -184,9 +216,8 @@ def follow():
         
         return { "action": "Unable to follow", "status":"failed", "error_type":exception_type}
 
-# toFollowDetails()
-# print(random.sample(followid,1))
-# print(followid)
+
+
 
 @app.route('/follow')
 def followInc():
