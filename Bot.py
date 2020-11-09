@@ -97,7 +97,7 @@ articleLinks =[
                "https://blog.labaranlabs.com/Data-Analysis-With-Pandas/index",
                "https://blog.labaranlabs.com/Ultimate-Guide-To-Numpy-For-Machine-Learning",
                "https://blog.labaranlabs.com/Object-Oriented-Programming-concept",
-               "https://blog.labaranlabs.com/Understand-Data-Types-In-Javascript",
+               "https://blog.labaranlabs.com/Understand-Data-Types-In-Javascript/Index/",
                  "https://towardsdatascience.com/the-fastml-guide-9ada1bb761cf",
                 "https://towardsdatascience.com/developing-a-good-attitude-towards-data-science-be4b7d0e1e49",
                "https://towardsdatascience.com/the-self-learning-path-to-becoming-a-data-scientist-ai-or-ml-engineer-9ab3a97ca",
